@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Information Form</title>
+    <title>WELCOME IN OUR FAMILY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <style>
-        /* Photo jaisa Dark Background */
+        /* Professional Dark Background */
         body {
-            background-color: #0b1e22; /* Dark Greenish-Blue */
+            background-color: #1a2238; /* Deep Professional Blue-Grey */
             color: #ffffff;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,93 +18,120 @@
             margin: 0;
             min-height: 100vh;
         }
+
         .form-container {
-            background-color: #122d33; /* Slightly lighter dark for the box */
-            padding: 25px;
-            border: 2px solid #00bcd4; /* Cyan border like the photo */
-            border-radius: 12px;
+            background-color: #242f4d; /* Card Background */
+            padding: 30px;
+            border-radius: 15px;
             width: 100%;
-            max-width: 400px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        h2 { text-align: center; color: #00bcd4; margin-bottom: 20px; }
-        label { display: block; margin-top: 15px; font-weight: bold; color: #00bcd4; }
+
+        /* Multi-color Welcome Text */
+        .welcome-text {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .color-w { color: #5dade2; } /* Light Blue */
+        .color-i { color: #f4d03f; } /* Yellow */
+        .color-o { color: #58d68d; } /* Green */
+        .color-f { color: #ec7063; } /* Soft Red/Pink */
+
+        /* Red Headings */
+        label { 
+            display: block; 
+            margin-top: 18px; 
+            font-weight: bold; 
+            color: #FF0000; /* Bright Red */
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
         
-        /* Input boxes styling */
-        input, select, textarea {
+        input, textarea {
             width: 100%;
             padding: 12px;
-            margin-top: 5px;
-            background-color: #0b1e22;
-            border: 1px solid #00bcd4;
+            margin-top: 8px;
+            background-color: #f4f7f6;
+            border: 2px solid transparent;
             border-radius: 8px;
-            color: white;
+            color: #333;
             box-sizing: border-box;
+            font-size: 15px;
         }
-        
-        input:focus { outline: none; border-color: #ffffff; }
 
-        .phone-group {
-            display: flex;
-            gap: 10px;
+        input:focus {
+            outline: none;
+            border-color: #FF0000;
+            background-color: #ffffff;
         }
-        .phone-group select { width: 40%; }
-        .phone-group input { width: 60%; }
 
-        /* Submit Button like the photo's icons */
+        /* Country Code Specific */
+        .iti { width: 100%; margin-top: 8px; }
+        .iti__country-list { background-color: #ffffff; color: #333; }
+
         button {
             width: 100%;
-            background-color: #00bcd4;
-            color: #0b1e22;
-            padding: 14px;
+            background-color: #2e86c1;
+            color: white;
+            padding: 15px;
             border: none;
             border-radius: 8px;
-            margin-top: 25px;
+            margin-top: 30px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
+            text-transform: uppercase;
             transition: 0.3s;
         }
-        button:hover { background-color: #ffffff; color: #00bcd4; }
-
-        /* Placeholder color */
-        ::placeholder { color: #5a7d85; opacity: 1; }
+        button:hover { background-color: #21618c; transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <h2>Welcome in Our Family</h2>
+    <div class="welcome-text">
+        <span class="color-w">Welcome</span> 
+        <span class="color-i">in</span> 
+        <span class="color-o">Our</span> 
+        <span class="color-f">Family</span>
+    </div>
     
     <form action="https://formspree.io/f/xrelkgbz" method="POST">
         
-        <label for="name">Full Name *</label>
-        <input type="text" id="name" name="Name" placeholder="Enter your full name" required>
+        <label>Full Name *</label>
+        <input type="text" name="Name" placeholder="Enter your full name" required>
 
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" name="Email" placeholder="example@mail.com" required>
+        <label>Email Address *</label>
+        <input type="email" name="Email" placeholder="example@mail.com" required>
 
         <label>Mobile Number *</label>
-        <div class="phone-group">
-            <select name="Country Code" required>
-                <option value="" disabled selected>Code</option>
-                <option value="+91">+91 (IN)</option>
-                <option value="+1">+1 (US)</option>
-                <option value="+44">+44 (UK)</option>
-                <option value="+971">+971 (UAE)</option>
-            </select>
-            <input type="tel" name="Phone Number" placeholder="Number" pattern="[0-9]{10}" required>
-        </div>
+        <input type="tel" id="phone" name="Phone Number" required>
 
-        <label for="address">Full Address *</label>
-        <textarea id="address" name="Address" rows="3" placeholder="Home address" required></textarea>
+        <label>Full Address *</label>
+        <textarea name="Address" rows="3" placeholder="Enter complete home address" required></textarea>
 
-        <label for="pincode">Pin Code *</label>
-        <input type="text" id="pincode" name="Pincode" placeholder="6-digit PIN" pattern="[0-9]{6}" required>
+        <label>Pin Code *</label>
+        <input type="text" name="Pincode" placeholder="6-digit PIN" pattern="[0-9]{6}" required>
 
         <button type="submit">SUBMIT</button>
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        initialCountry: "in", // Default India select hoga
+        separateDialCode: true,
+        preferredCountries: ["in", "us", "gb"],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>
 
 </body>
 </html>
